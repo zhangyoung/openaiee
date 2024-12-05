@@ -18,7 +18,16 @@ export default async function handler(req: NextRequest) {
     //   } else {
     //     url.host = 'api.openai.com';
     //   }
-    if (url.pathname.startsWith('/openai')) {
+
+    if (url.pathname.startsWith('/googleapis')) {
+        url.host = 'generativelanguage.googleapis.com';
+    } else if (url.pathname.startsWith('/httpbin')) {
+        url.host = 'httpbin.org';
+    } else if (url.pathname.startsWith('/groq')) {
+        url.host = 'api.groq.com';
+    } else if (url.pathname.startsWith('/anthropic')) {
+        url.host = 'api.anthropic.com';
+    } else if (url.pathname.startsWith('/openai')) {
         url.host = 'api.openai.com';
     } else {
         url.host = 'api.x.ai';
